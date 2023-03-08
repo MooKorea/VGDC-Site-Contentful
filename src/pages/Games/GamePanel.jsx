@@ -19,13 +19,6 @@ export default function GamePanel({ panelSelect }) {
       const res = await fetch(url);
       const result = await res.json();
       setGames(result.values);
-
-      //Sliding in Animation
-      // const panels = getPanels.current?.children;
-      // for (let i = 0; i < panels?.length; i++) {
-      //   await sleep(70)
-      //   panels[i]?.classList.add('panel-default')
-      // }
     };
     newFetchData().catch(console.error);
     
