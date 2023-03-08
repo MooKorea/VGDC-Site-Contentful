@@ -21,15 +21,16 @@ export default function GamePanel({ panelSelect }) {
       setGames(result.values);
 
       //Sliding in Animation
-      const panels = getPanels.current?.children;
-      for (let i = 0; i < panels?.length; i++) {
-        await sleep(70)
-        panels[i]?.classList.add('panel-default')
-      }
+      // const panels = getPanels.current?.children;
+      // for (let i = 0; i < panels?.length; i++) {
+      //   await sleep(70)
+      //   panels[i]?.classList.add('panel-default')
+      // }
     };
     newFetchData().catch(console.error);
     
   }, []);
+
 
   if (games[1] !== undefined) {
     const panels = [];
@@ -39,6 +40,7 @@ export default function GamePanel({ panelSelect }) {
         <figure
           className="panel"
           key={i}
+          style={{animationDelay: ((games[1].length - 1) - i)/10 + 's'}}
           data-title={games[1][i]}
           data-thumbnail={games[9][i]}
           data-buildlink={games[3][i]}

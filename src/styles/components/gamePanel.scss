@@ -17,9 +17,9 @@ main {
     overflow: hidden;
     position: relative;
     filter: drop-shadow(0 0 0.4rem black);
-    transform: translateY(100px);
     opacity: 0;
-    transition:transform cubic-bezier(0.01, 1.14, 1, 1) 1s, opacity 0.4s;
+    animation:cubic-bezier(0.01, 1.14, 1, 1) 1s panelSlide, 0.4s panelFade;
+    animation-fill-mode: forwards;
     &:hover {
       cursor: pointer;
     }
@@ -33,9 +33,13 @@ main {
     }
   }
 
-  .panel-default {
-    transform: translateY(0);
-    opacity: 1;
+  @keyframes panelSlide {
+    from{transform:translateY(100px);}
+    to{transform: translateY(0);}
+  }
+  @keyframes panelFade {
+    from{opacity:0;}
+    to{opacity:1;}
   }
 
   .selected {
