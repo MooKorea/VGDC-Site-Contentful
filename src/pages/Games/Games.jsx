@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import GamePanel from "./GamePanel";
 import Slides from "./Slides";
-import useExpandable from "./useExpandable";
 
 export default function Games() {
   const defaultSidebar = (
-    <div className="defaultSidebar">
+    <div className="defaultSidebar" key={1}>
       <p>No game selected</p>
     </div>
   );
@@ -38,8 +37,8 @@ export default function Games() {
                   gradientUnits="userSpaceOnUse"
                   gradientTransform="translate(5.5 -7) rotate(63.5911) scale(82.064)"
                 >
-                  <stop stop-color="#D236BE" />
-                  <stop offset="1" stop-color="#6652DD" />
+                  <stop stopColor="#D236BE" />
+                  <stop offset="1" stopColor="#6652DD" />
                 </radialGradient>
               </defs>
             </svg>
@@ -68,8 +67,8 @@ export default function Games() {
   };
 
   const panelSelect = (e) => {
-    const markDisplay = document.querySelector('.sticky').childNodes
-    markDisplay.forEach(e => e.setAttribute('data-display','false'))
+    const markDisplay = document.querySelector(".sticky").childNodes;
+    markDisplay.forEach((e) => e.setAttribute("data-display", "false"));
 
     const data = e.target.closest(".panel");
     const selected = document.getElementsByClassName("selected");
@@ -80,7 +79,7 @@ export default function Games() {
 
     const thumbnail = data.getAttribute("data-thumbnail");
     const title = data.getAttribute("data-title");
-    const buildLink = optionalData("link", data.getAttribute("data-buildLink"));
+    const buildLink = optionalData("link", data.getAttribute("data-buildlink"));
     const description = optionalData(
       "description",
       data.getAttribute("data-description")
@@ -90,7 +89,7 @@ export default function Games() {
     const theme = optionalData("theme", data.getAttribute("data-theme"));
 
     let gameData = (
-      <div className="sidebar-content">
+      <div className="sidebar-content" key={title}>
         <div
           className="blurredBackground"
           style={{ backgroundImage: `url(${thumbnail})` }}
@@ -106,7 +105,7 @@ export default function Games() {
             <h2>{title}</h2>
             {date}
             <div className="triangles-graphic">
-              <img src="/wp-content/themes/vgdc-theme/src/images/Triangle-Graphic.svg"></img>
+              <img src="/images/Triangle-Graphic.svg"></img>
             </div>
           </div>
           <div className="body">
@@ -123,11 +122,11 @@ export default function Games() {
       return [...prevSidebar, gameData];
     });
 
-    const prevSidebarElement = document.querySelectorAll('[data-display="false"]')
-    
-    prevSidebarElement.forEach(e => e.style.opacity = '0')
+    const prevSidebarElement = document.querySelectorAll('[data-display="false"]');
+
+    prevSidebarElement.forEach((e) => (e.style.opacity = "0"));
     setTimeout(() => {
-      prevSidebarElement.forEach(e => e.remove())
+      prevSidebarElement.forEach((e) => e.remove());
     }, 700);
   };
 
@@ -161,12 +160,15 @@ export default function Games() {
 
   return (
     <>
+    <div className="header-spacer"></div>    
+    <main>
       <aside className="games-sidebar" ref={getSidebar}>
         <div className="sticky" ref={getSticky}>
           {gameInfo}
         </div>
       </aside>
       <GamePanel panelSelect={panelSelect} />
+    </main>
     </>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 export default function useSlides({ thumbnail, media1, media2, media3 }) {
   let mediaObj = Object.fromEntries(
-    Object.entries({ thumbnail, media1, media2, media3 }).filter(([_, v]) => v != "")
+    Object.entries({ thumbnail, media1, media2, media3 }).filter(([_, v]) => v != null)
   );
   const mediaArr = Object.values(mediaObj);
 
@@ -22,34 +22,7 @@ export default function useSlides({ thumbnail, media1, media2, media3 }) {
       setSlide(0);
     }
 
-    const selectMedia = document.querySelector('.media')
-    const selectImg = selectMedia.querySelectorAll('img')
-    for (let i = 0; i < selectImg.length; i++) {
-      if (selectImg[i] === undefined) continue
-      if (direction === "left") {
-        selectImg[i].style.transform = 'translateX(-100%)'
-      } else {
-        selectImg[i].style.transform = 'translateX(100%)'
-      }
-      selectImg[i].style.opacity = '0'
-
-      setTimeout(() => {
-        selectImg[i].remove()
-      }, 700);
-    }
-
-    const inlineStyle = () => {
-      if (direction === 'left') return
-      return {
-        animation: 'cubic-bezier(0.075, 0.82, 0.165, 1) 0.7s frame-slide-right'
-      }
-    }
-    setMedia((prevMedia) => {
-      return [
-        ...prevMedia,
-        <img src={mediaArr[slide]} style={inlineStyle()}></img>
-      ]
-    });
+    setMedia(<img src={mediaArr[slide]}></img>);
   }, [slide]);
 
   function handleSlideLeft() {

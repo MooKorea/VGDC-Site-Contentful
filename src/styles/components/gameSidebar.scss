@@ -80,27 +80,6 @@ $sidebar-width: 500px;
       animation: cubic-bezier(0.075, 0.82, 0.165, 1) 0.7s frame-slide-left;
     }
 
-    @keyframes frame-slide-left {
-      from {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-    @keyframes frame-slide-right {
-      from {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
     .buttons {
       z-index: 3;
       width: 100%;
