@@ -1,0 +1,25 @@
+@import "abstracts/colors";
+@import "abstracts/fonts";
+@import "mixins";
+@import "components/scrollbar";
+@import "components/navbar";
+@import "components/submitGames";
+@import "components/home";
+@import "components/gamePanel";
+@import "components/gameSidebar";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: $backgroundPrimary;
+  margin: 0;
+  overflow-x: hidden;
+  color: white;
+  font-family: $textNormal;
+  body {
+    position: relative;
+  }
+}

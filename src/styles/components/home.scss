@@ -1,0 +1,71 @@
+header {
+  min-width: 100%;
+  height: 100vh;
+  position: relative;
+  .home-video {
+    position: relative;
+    right: 0;
+  }
+  .home-intro {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    z-index: 50;
+    pointer-events: none;
+  }
+
+  @media (max-aspect-ratio:16/9) {
+    .home-intro {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  .home-dark-bg {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 1000px;
+    mix-blend-mode: multiply;
+  }
+  .home-text-bg {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 1150px;
+    mix-blend-mode: screen;
+  }
+
+  h1.home-heading {
+    position: absolute;
+    white-space: nowrap;
+    top: 55px;
+    left: 110px;
+    z-index: 2;
+    color: white;
+    font-family: $displayHeavy;
+    font-size: 7.5rem;
+    background: linear-gradient(#86fff8, #d9c6f2 50%, #ff2bea);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transition: ease-in 1s;
+
+    & > span {
+      transition: cubic-bezier(0.62,-0.63, 0.24, 1.99) 1s;
+      margin-left:-50px;
+    }
+
+    svg {
+      margin: 0px 50px 20px 0px;
+    }
+
+    .heading-2 > span {
+      margin: 0px 5px 0px -3px;
+    }
+  }
+}

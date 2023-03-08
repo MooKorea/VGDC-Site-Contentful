@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'AvenirLTStd-Roman';
+    src: url("abstracts/fonts/AvenirLTStd-Roman.otf");
+}
+@font-face {
+    font-family: 'AvenirLTStd-Light';
+    src: url("abstracts/fonts/AvenirLTStd-Light.otf");
+}
+@font-face {
+    font-family: 'Exo2.0-ExtraBold';
+    src: url("abstracts/fonts/Exo2.0-ExtraBold.otf");
+}
+@font-face {
+    font-family: 'Exo2.0-SemiBold';
+    src: url("abstracts/fonts/Exo2.0-SemiBold.otf");
+}
+
+$textNormal: 'AvenirLTStd-Roman', sans-serif;
+$textLight: 'AvenirLTStd-Light' , sans-serif;
+$displayNormal: 'Exo2.0-SemiBold' , sans-serif;
+$displayHeavy: 'Exo2.0-ExtraBold' , sans-serif;
