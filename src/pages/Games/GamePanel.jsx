@@ -24,7 +24,7 @@ export default function GamePanel({ panelSelect }) {
       const panels = getPanels.current?.children;
       for (let i = 0; i < panels?.length; i++) {
         await sleep(70)
-        panels[i].classList.add('panel-default')
+        panels[i]?.classList.add('panel-default')
       }
     };
     newFetchData().catch(console.error);
