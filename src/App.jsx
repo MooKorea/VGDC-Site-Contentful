@@ -1,6 +1,6 @@
 import "./styles/main.scss";
 import Navbar from "./Navbar"
-import BlogExample from "./blogExample";
+import BlogExample from "./BlogExample";
 import { Route, Routes } from "react-router-dom"
 
 function App() {
