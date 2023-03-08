@@ -50,7 +50,7 @@ header {
     font-family: $displayHeavy;
     font-size: 7.5rem;
     background: linear-gradient(#86fff8, #d9c6f2 50%, #ff2bea);
-    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0;
     transition: ease-in 1s;
