@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useContentful from "../hooks/useContentful";
+import useRichtextOptions from "../hooks/useRichtextOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 export default function blogExample() {
   const [content, setContent] = useState([]);
@@ -15,33 +15,33 @@ export default function blogExample() {
     })();
   }, []);
 
-  const richtextOptions = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => {
-        return <p>{children}</p>;
-      },
-      [INLINES.HYPERLINK]: (node, children) => {
-        return <a href={node.data.uri}>{children}</a>;
-      },
-    },
-    renderText: (text) => {
-      return text.split("\n").reduce((children, textSegment, index) => {
-        return [...children, index > 0 && <br key={index} />, textSegment];
-      }, []);
-    },
-  };
-  
+  const richtextOptions = useRichtextOptions()
+  const parseDate = (ISOdate) => {
+    const date = new Date(ISOdate)
+    const parsedDate = date.toLocaleDateString()
+    return `${parsedDate}`
+  }
+
   return (
-    <div className="App">
-      {content.map((content, index) => (
-        <div key={index}>
-          {content.title} <br />
-          {content.author} <br />
-          {content.date} <br />
-          <img src={content.headerImage.file.url} />
-          {documentToReactComponents(content.content, richtextOptions)}
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="header-spacer"></div>
+      <main className="blog">
+        {content.map((content, index) => (
+          <article key={index}>
+            <h2>
+              {content.title}
+            </h2>
+            <div className="author">
+              By {content.author}
+            </div>
+            <div className="date">
+              {parseDate(content.date)}
+            </div>
+            <img src={content.headerImage.file.url} className="thumbnail-img" />
+            {documentToReactComponents(content.content, richtextOptions)}
+          </article>
+        ))}
+      </main>
+    </>
   );
 }

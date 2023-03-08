@@ -1,5 +1,4 @@
 import { createClient } from "contentful";
-
 export default function useContentful() {
   const client = createClient({
     space: "vgr4mf4t2zeb",
