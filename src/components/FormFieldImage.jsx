@@ -15,7 +15,7 @@ export default function FormFieldImage({
 
   return (
     <div>
-      <label for={id}>
+      <label htmlFor={id}>
         {label}
         {isRequired(<span>*</span>)}
       </label>

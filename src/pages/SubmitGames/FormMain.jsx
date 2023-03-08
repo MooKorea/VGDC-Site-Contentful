@@ -49,7 +49,7 @@ export default function FormMain({
         placeholder="Who worked on your game? Optional"
       />
       <MultiFileInput additionalMediaRef={additionalMediaRef} />
-      <div class="formTwoColumn">
+      <div className="formTwoColumn">
         <TextField id="date" label="Date" placeholder="Fall 2022, Winter Game Jam 2023" />
         <TextField
           id="theme"

@@ -7,7 +7,7 @@ export default function FormFieldTextarea({ id, label, placeholder, isrequired }
 
   return (
     <div>
-      <label for={id}>
+      <label htmlFor={id}>
         {label}
         {isRequired(<span>*</span>)}
       </label>

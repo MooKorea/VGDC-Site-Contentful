@@ -10,7 +10,7 @@ export default function blogExample() {
   useEffect(() => {
     (async () => {
       const response = await getContent();
-      console.log(response);
+      // console.log(response);
       setContent(response);
     })();
   }, []);

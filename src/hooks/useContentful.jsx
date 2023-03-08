@@ -8,7 +8,10 @@ export default function useContentful() {
 
   const getContent = async () => {
     try {
-      const entries = await client.getEntries();
+      const entries = await client.getEntries({
+        'content_type': 'blogPost'
+      });
+      console.log(entries)
       const sanitizedEntries = entries.items.map((e) => {
         const headerImage = e.fields.headerImage.fields
         return { ...e.fields, headerImage };
