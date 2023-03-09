@@ -24,7 +24,7 @@ jobs:
 
       - name: create env file
         run: |
-          cd
+          pwd
           touch .env
           echo VITE_CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} >> .env
           echo VITE_DISCORD_BOT_LINK=${{ secrets.DISCORD_BOT_LINK }} >> .env
