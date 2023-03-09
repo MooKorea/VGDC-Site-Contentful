@@ -8,7 +8,6 @@ import Games from "./pages/Games/Games";
 import { Route, Routes } from "react-router-dom"
 
 function App() {
-  console.log(import.meta.env)
   return (
     <>
       <Navbar />
