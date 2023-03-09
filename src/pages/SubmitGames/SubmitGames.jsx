@@ -45,7 +45,7 @@ export default function SubmitGames() {
       await fetch("https://api.imgur.com/3/image/", {
         method: "POST",
         headers: {
-          Authorization: "Client-ID 03136d5e6316bff",
+          Authorization: `Client-ID ${import.meta.env.VITE_IMGUR_API}`,
         },
         body: formData,
       })
@@ -60,7 +60,7 @@ export default function SubmitGames() {
     ['thumbnail','image','media1','media2','media3'].forEach(e => delete formJSON[e])
     console.log(formJSON)
 
-    const discordBotLink = "https://Crockie-Bot.mookorea.repl.co/postReqFormData";
+    const discordBotLink = import.meta.env.VITE_DISCORD_BOT_LINK;
     fetch(discordBotLink, {
       method: "POST",
       body: JSON.stringify(formJSON),

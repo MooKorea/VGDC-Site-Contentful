@@ -13,7 +13,7 @@ export default function GamePanel({ panelSelect }) {
   useEffect(() => {
     const spreadsheet_id = "1TavkbXHhw3hrDaRKhhNsevyRCM_UG8VD0x-d5eZnHZE";
     const tab_name = "Sheet1";
-    const api_key = "AIzaSyBd_VuMXIifzKsAxrPk1fPf2mWwBGnlDzM";
+    const api_key = import.meta.env.VITE_GOOGLE_SHEETS_API;
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheet_id}/values/${tab_name}?alt=json&key=${api_key}`;
     const newFetchData = async () => {
       const res = await fetch(url);
