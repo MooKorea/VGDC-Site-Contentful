@@ -45,6 +45,7 @@ jobs:
           echo DISCORD_BOT_LINK=${{ secrets.DISCORD_BOT_LINK }} >> .env
           echo GOOGLE_SHEETS_API=${{ secrets.GOOGLE_SHEETS_API }} >> .env
           echo IMGUR_API=${{ secrets.IMGUR_API }} >> .env
+          cat .env
 
       - name: Download artifact
         uses: actions/download-artifact@v2
