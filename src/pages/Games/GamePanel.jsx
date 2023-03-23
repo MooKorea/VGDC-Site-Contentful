@@ -47,7 +47,9 @@ export default function GamePanel({ panelSelect }) {
           data-media3={games[12][i]}
           onClick={panelSelect}
         >
-          <img className="thumbnail-image" src={games[9][i]}></img>
+          <div className="thumbnail-image-container">
+            <img className="thumbnail-image" src={games[9][i]}></img>
+          </div>
           <figcaption className="title">{games[1][i]}</figcaption>
         </figure>
       );
