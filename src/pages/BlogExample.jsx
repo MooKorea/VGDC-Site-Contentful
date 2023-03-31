@@ -6,11 +6,10 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 export default function blogExample() {
   const [content, setContent] = useState([]);
 
-  const { getContent } = useContentful();
+  const { getContent } = useContentful('blogPost');
   useEffect(() => {
     (async () => {
       const response = await getContent();
-      // console.log(response);
       setContent(response);
     })();
   }, []);

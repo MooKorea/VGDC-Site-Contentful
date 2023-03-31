@@ -1,22 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "../hooks/useMediaQuery";
-
-function ExposedItems() {
-  return (
-    <>
-      <li>
-        <Link to="/games">GAMES</Link>
-      </li>
-    </>
-  );
-}
+import NavbarExposedItems from "./NavbarExposedItems";
 
 export default function NavbarItems() {
   const mediaQuery = useMediaQuery("lg");
   const handleMediaQuery = () => {
     if (mediaQuery) return
-    return (<ExposedItems />)
+    return (<NavbarExposedItems />)
   }
   return (
     <>

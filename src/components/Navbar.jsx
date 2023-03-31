@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "../hooks/useMediaQuery";
-import NavbarItems from "./NavbarItems";
+import NavbarExposedItems from "./NavbarExposedItems";
 import Sidebar from "./Sidebar";
 import { useLocation } from "react-router-dom";
 
@@ -19,15 +19,13 @@ export default function navbar() {
   let [sidebarToggle, setSidebarToggle] = useState(false);
   const location = useLocation();
   useEffect(() => {
-    setSidebarToggle(false)
+    setSidebarToggle(false);
   }, [location]);
 
   const handleMainNav = () => {
     if (mediaQuery)
       return (
-        <li>
-          <Link to="/games">GAMES</Link>
-        </li>
+        <NavbarExposedItems />
       );
   };
 
@@ -39,10 +37,7 @@ export default function navbar() {
           <Link to="/" className="navbar-logo-button">
             <img className="navbar-logo" src="/images/Navbar-logo.png" />
             {logoText()}
-            <img
-              className="navbar-triangles"
-              src="/images/Triangle-Graphic.svg"
-            />
+            <img className="navbar-triangles" src="/images/Triangle-Graphic.svg" />
           </Link>
           <div className="main-navigation-container">
             <ul className="main-navigation">

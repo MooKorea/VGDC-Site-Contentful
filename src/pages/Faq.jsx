@@ -6,7 +6,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 export default function About() {
   const [content, setContent] = useState([]);
-  const { getContent } = useContentful('aboutPage');
+  const { getContent } = useContentful('faqPage');
   useEffect(() => {
     (async () => {
       const response = await getContent();
@@ -17,7 +17,7 @@ export default function About() {
   const richtextOptions = useRichtextOptions()
 
   return (
-    <main className="About-Us">
+    <main className="FAQ">
       {content}
     </main>
   )

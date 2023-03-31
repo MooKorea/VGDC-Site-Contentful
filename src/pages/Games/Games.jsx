@@ -161,7 +161,7 @@ export default function Games() {
   return (
     <>
     <div className="header-spacer"></div>    
-    <main>
+    <main className="games">
       <aside className="games-sidebar" ref={getSidebar}>
         <div className="sticky" ref={getSticky}>
           {gameInfo}
