@@ -15,7 +15,8 @@ function ExposedItems() {
 export default function NavbarItems() {
   const mediaQuery = useMediaQuery("lg");
   const handleMediaQuery = () => {
-    if (!mediaQuery) return (<ExposedItems />)
+    if (mediaQuery) return
+    return (<ExposedItems />)
   }
   return (
     <>

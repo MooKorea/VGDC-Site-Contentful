@@ -49,7 +49,7 @@ export default function navbar() {
               {handleMainNav()}
               <li>
                 <img
-                  src="/images/hamburger.png"
+                  src="/images/menu-512.webp"
                   onClick={() => setSidebarToggle(!sidebarToggle)}
                 />
               </li>

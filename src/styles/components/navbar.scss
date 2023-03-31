@@ -38,7 +38,8 @@ $navbar-height: 70px;
 
     img {
       margin-inline: 1em;
-      opacity: 0.5;
+      opacity: 0.7;
+      transform: scale(0.8);
       &:hover {
         cursor: pointer;
       }
@@ -176,6 +177,7 @@ $navbar-height: 70px;
   right: 0;
   z-index: 20;
   pointer-events: none;
+  animation: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s fade-in;
   ul {
     margin-inline: 2em;
     pointer-events: all;
@@ -190,4 +192,8 @@ $navbar-height: 70px;
     text-decoration: none;
     color: white;
   }
+}
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
