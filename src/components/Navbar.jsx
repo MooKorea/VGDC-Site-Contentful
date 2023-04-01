@@ -7,14 +7,8 @@ import { useLocation } from "react-router-dom";
 
 export default function navbar() {
   const mediaQuery = useMediaQuery("lg");
-  const logoText = () => {
-    if (!mediaQuery) return;
-    return (
-      <div className="logo-text">
-        University of Minnesota <br /> Video Game Development Club
-      </div>
-    );
-  };
+  const mediaQueryMd = useMediaQuery("md");
+  const mediaQueryXl = useMediaQuery("xl");
 
   let [sidebarToggle, setSidebarToggle] = useState(false);
   const location = useLocation();
@@ -22,11 +16,15 @@ export default function navbar() {
     setSidebarToggle(false);
   }, [location]);
 
-  const handleMainNav = () => {
-    if (mediaQuery)
-      return (
-        <NavbarExposedItems />
-      );
+  const handleMediaQuery = (big, small, size) => {
+    let sizeSelect = mediaQuery;
+    if (size === 'medium') sizeSelect = mediaQueryMd;
+    if (size === 'xl') sizeSelect = mediaQueryXl;
+    if (sizeSelect) {
+      return big;
+    } else {
+      return small;
+    }
   };
 
   return (
@@ -36,12 +34,17 @@ export default function navbar() {
         <div className="top-nav">
           <Link to="/" className="navbar-logo-button">
             <img className="navbar-logo" src="/images/Navbar-logo.png" />
-            {logoText()}
+            {handleMediaQuery(
+              <div className="logo-text">
+                University of Minnesota <br /> Video Game Development Club
+              </div>,
+              null, 'xl'
+            )}
             <img className="navbar-triangles" src="/images/Triangle-Graphic.svg" />
           </Link>
           <div className="main-navigation-container">
             <ul className="main-navigation">
-              {handleMainNav()}
+              {handleMediaQuery(<NavbarExposedItems />, null)}
               <li>
                 <img
                   src="/images/menu-512.webp"
@@ -49,18 +52,21 @@ export default function navbar() {
                 />
               </li>
             </ul>
-            <ul>
-              <li>
-                <a
-                  className="discord"
-                  href="https://discord.gg/Yst7Zwn4wk"
-                  target="_blank"
-                >
-                  DISCORD
-                  <img src="/images/window-expand.png" />
-                </a>
-              </li>
-            </ul>
+            {handleMediaQuery(
+              <ul>
+                <li>
+                  <a
+                    className="discord"
+                    href="https://discord.gg/Yst7Zwn4wk"
+                    target="_blank"
+                  >
+                    DISCORD
+                    <img src="/images/window-expand.png" />
+                  </a>
+                </li>
+              </ul>,
+              null, 'medium'
+            )}
           </div>
         </div>
       </nav>

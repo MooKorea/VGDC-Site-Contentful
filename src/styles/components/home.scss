@@ -8,10 +8,9 @@ header {
   }
   .home-intro {
     position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     margin: auto;
     width: 100%;
     z-index: 50;
@@ -25,31 +24,64 @@ header {
     }
   }
 
-  .home-dark-bg {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 1000px;
-    mix-blend-mode: multiply;
-  }
-  .home-text-bg {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 1150px;
-    mix-blend-mode: screen;
+  .home-video-mobile {
+    position: relative;
+    top: $navbar-height;
+    width: 100vw;
   }
 
+  .home-header {
+    position: absolute;
+    top: $navbar-height;
+    width: 1150px;
+  }
+
+  .landing-button {
+    @media (min-width: 768px) {      
+      max-width: 160px;
+      left: 705px;
+      top: 468px;
+    }
+    max-width: 34vw;
+    left: 50vw;
+    top: 100vw;
+    transform: translate(-50%,-50%);
+  }
+
+  .home-bg {
+    position: absolute;
+    width: 100%;
+  }
+
+  .home-mobile-bg {
+    position: absolute;
+    width: 100vw;
+  }
+
+  .screen {
+    mix-blend-mode: screen;
+  }
+  .multiply {
+    mix-blend-mode: multiply;
+  }
+
+
   h1.home-heading {
+    @media (min-width: 768px) {      
+      top: -20px;
+      left: 110px;
+      font-size: 7.5rem;
+    }
+    left: 10vw;
+    font-size: 16vw;
+
     position: absolute;
     white-space: nowrap;
-    top: 55px;
-    left: 110px;
     z-index: 2;
     color: white;
     font-family: $displayHeavy;
-    font-size: 7.5rem;
     background: linear-gradient(#86fff8, #d9c6f2 50%, #ff2bea);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0;
@@ -61,7 +93,15 @@ header {
     }
 
     svg {
-      margin: 0px 50px 20px 0px;
+      margin-right: 0.5em;
+      margin-bottom: 1.5vw;
+      @media (min-width: 1024px) {      
+        width:auto;
+      }
+      width: 4vw;
+      path {
+        margin-top: 20px;
+      }
     }
 
     .heading-2 > span {
@@ -69,3 +109,4 @@ header {
     }
   }
 }
+

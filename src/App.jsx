@@ -1,6 +1,6 @@
 import "./styles/main.scss";
 import Navbar from "./components/Navbar"
-import Home from "./pages/HomePage"
+import Home from "./pages/Home/HomePage"
 import BlogExample from "./pages/BlogExample";
 import ContactUs from "./pages/ContactUs";
 import SubmitGames from "./pages/SubmitGames/SubmitGames";
