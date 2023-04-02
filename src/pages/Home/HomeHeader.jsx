@@ -46,14 +46,13 @@ export default function HomeHeader() {
       <a
         href="https://youtu.be/AQx_KMoCgJU?t=27"
         target="_blank"
-        style={{ fontSize: "0" }}
+        title="Link to reel"
       >
         <img
           className="home-bg landing-button"
           src="/images/home/Landing-Button.svg"
           alt="Landing page button"
         />
-        Link to reel
       </a>
 
       <h1 className="home-heading">
