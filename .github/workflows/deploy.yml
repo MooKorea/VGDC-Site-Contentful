@@ -6,22 +6,6 @@ on:
       - main
 
 jobs:
-
-  create-envfile:
-    name: Create Env File
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1.2
-      with:
-        envkey_VITE_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-        envkey_VITE_DISCORD_BOT_LINK: ${{ secrets.DISCORD_BOT_LINK }}
-        envkey_VITE_GOOGLE_SHEETS_API: ${{ secrets.GOOGLE_SHEETS_API }}
-        envkey_VITE_IMGUR_API: ${{ secrets.IMGUR_API }}
-        file_name: .env
-        fail_on_empty: false
-
   build:
     name: Build
     needs: create-envfile
