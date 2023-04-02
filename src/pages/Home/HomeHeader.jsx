@@ -18,23 +18,42 @@ export default function HomeHeader() {
     <div className="home-header">
       {handleMediaQuery(
         <>
-          <img className="home-bg multiply" src="/images/home/Heading-Background.svg" />
-          <img className="home-bg screen" src="/images/home/Heading-Text-BG.svg" />
+          <img
+            className="home-bg multiply"
+            src="/images/home/Heading-Background.svg"
+            alt="Landing page secondary background"
+          />
+          <img
+            className="home-bg screen"
+            src="/images/home/Heading-Text-BG.svg"
+            alt="Landing page background"
+          />
         </>,
         <>
           <img
             className="home-mobile-bg multiply"
             src="/images/home/Mobile-Heading-Background-Shadow.svg"
+            alt="Landing page secondary background"
           />
           <img
             className="home-mobile-bg screen"
             src="/images/home/Mobile-Heading-Background.svg"
+            alt="Landing page background"
           />
         </>,
         "medium"
       )}
-      <a href="https://youtu.be/AQx_KMoCgJU?t=27" target="_blank" >
-        <img className="home-bg landing-button" src="/images/home/Landing-Button.svg" />
+      <a
+        href="https://youtu.be/AQx_KMoCgJU?t=27"
+        target="_blank"
+        style={{ fontSize: "0" }}
+      >
+        <img
+          className="home-bg landing-button"
+          src="/images/home/Landing-Button.svg"
+          alt="Landing page button"
+        />
+        Link to reel
       </a>
 
       <h1 className="home-heading">

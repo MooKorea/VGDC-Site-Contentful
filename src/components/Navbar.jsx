@@ -33,14 +33,14 @@ export default function navbar() {
         {sidebarToggle && <Sidebar />}
         <div className="top-nav">
           <Link to="/" className="navbar-logo-button">
-            <img className="navbar-logo" src="/images/Navbar-logo.png" />
+            <img className="navbar-logo" src="/images/Navbar-logo.png" alt="VGDC Logo" />
             {handleMediaQuery(
               <div className="logo-text">
                 University of Minnesota <br /> Video Game Development Club
               </div>,
               null, 'xl'
             )}
-            <img className="navbar-triangles" src="/images/Triangle-Graphic.svg" />
+            <img className="navbar-triangles" src="/images/Triangle-Graphic.svg" alt="background graphic" />
           </Link>
           <div className="main-navigation-container">
             <ul className="main-navigation">
@@ -49,6 +49,7 @@ export default function navbar() {
                 <img
                   src="/images/menu-512.webp"
                   onClick={() => setSidebarToggle(!sidebarToggle)}
+                  alt="navigation expand button"
                 />
               </li>
             </ul>

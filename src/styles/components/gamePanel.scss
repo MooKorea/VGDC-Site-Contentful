@@ -102,6 +102,7 @@ main.games {
 }
 
 .games-background-triangles {
+  pointer-events: none;
   position: fixed;
   bottom: 0;
   right: 0;
