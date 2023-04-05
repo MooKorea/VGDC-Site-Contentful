@@ -11,23 +11,24 @@ export default function NavbarItems() {
     let sizeSelect = mediaQuery;
     if (size === "medium") sizeSelect = mediaQueryMd;
     if (sizeSelect) {
-      return big;
-    } else {
       return small;
+    } else {
+      return big;
     }
   };
 
   return (
     <>
       {handleMediaQuery(
-        null,
         <li>
           <a className="discord-button-mobile" href="https://discord.gg/Yst7Zwn4wk" target="_blank">
             DISCORD
           </a>
-        </li>, 'medium'
+        </li>,
+          null,
+        'medium'
       )}
-      {handleMediaQuery(null, <NavbarExposedItems />)}
+      {handleMediaQuery(<NavbarExposedItems />, null)}
       <li>
         <Link to="/blog">BLOG</Link>
       </li>

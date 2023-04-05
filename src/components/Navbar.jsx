@@ -21,9 +21,9 @@ export default function navbar() {
     if (size === 'medium') sizeSelect = mediaQueryMd;
     if (size === 'xl') sizeSelect = mediaQueryXl;
     if (sizeSelect) {
-      return big;
-    } else {
       return small;
+    } else {
+      return big;
     }
   };
 
@@ -35,16 +35,17 @@ export default function navbar() {
           <Link to="/" className="navbar-logo-button">
             <img className="navbar-logo" src="/images/Navbar-logo.png" alt="VGDC Logo" />
             {handleMediaQuery(
+              null,
               <div className="logo-text">
                 University of Minnesota <br /> Video Game Development Club
               </div>,
-              null, 'xl'
+              'xl'
             )}
             <img className="navbar-triangles" src="/images/Triangle-Graphic.svg" alt="background graphic" />
           </Link>
           <div className="main-navigation-container">
             <ul className="main-navigation">
-              {handleMediaQuery(<NavbarExposedItems />, null)}
+              {handleMediaQuery(null, <NavbarExposedItems />)}
               <li>
                 <img
                   src="/images/menu-512.webp"
@@ -54,6 +55,7 @@ export default function navbar() {
               </li>
             </ul>
             {handleMediaQuery(
+              null,
               <ul>
                 <li>
                   <a
@@ -66,7 +68,7 @@ export default function navbar() {
                   </a>
                 </li>
               </ul>,
-              null, 'medium'
+              'medium'
             )}
           </div>
         </div>

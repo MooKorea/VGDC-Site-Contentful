@@ -47,28 +47,25 @@ export default function HomePage() {
     const video = bgVideo.current?.children[0]
     video?.load();
     if (sizeSelect) {
-      return big;
-    } else {
       return small;
+    } else {
+      return big;
     }
   };
 
   return (
     <header>
-      <video className="home-intro" autoPlay muted="muted" ref={introVideo}>
+      <video className="home-intro" autoPlay muted playsinline ref={introVideo}>
         <source src="/videos/vgdcWebMTest.hevc.mp4" type="video/mp4; codecs='hvc1'" />
         <source src="/videos/vgdcWebMTest.mkv" type="video/mp4" />
-        "Your browser does not support the video tag."
       </video>
       <div ref={bgVideo}>
         {handleMediaQuery(
-          <video className="home-video" autoPlay loop="loop" muted="muted">
-            <source src="/videos/VGDCReelCut.mp4" type="video/mp4" />
-            "Your browser does not support the video tag."
-          </video>,
-          <video className="home-video-mobile" autoPlay loop="loop" muted="muted">
+          <video className="home-video-mobile" autoPlay loop muted playsinline>
             <source src="/videos/VGDCReelCutMobile.mp4" type="video/mp4" />
-            "Your browser does not support the video tag."
+          </video>,
+          <video className="home-video" autoPlay loop muted playsinline>
+            <source src="/videos/VGDCReelCut.mp4" type="video/mp4" />
           </video>
         )}
       </div>
