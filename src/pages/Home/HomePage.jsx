@@ -54,7 +54,6 @@ export default function HomePage() {
     }
   };
 
-console.log(mediaQuery)
   return (
     <header>
       <video className="home-intro" autoPlay muted playsInline ref={introVideo}>
