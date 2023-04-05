@@ -10,7 +10,6 @@ export default function HomePage() {
   };
 
   const introVideo = useRef();
-  const mediaQuery = useMediaQuery("lg");
 
   useEffect(() => {
     const HomeHeader = document.querySelector(".home-heading");
@@ -42,30 +41,33 @@ export default function HomePage() {
   }, []);
 
   const bgVideo = useRef()
+
+  const mediaQuery = useMediaQuery("md");
   const handleMediaQuery = (big, small, size) => {
     let sizeSelect = mediaQuery;
     const video = bgVideo.current?.children[0]
     video?.load();
     if (sizeSelect) {
-      return small;
-    } else {
       return big;
+    } else {
+      return small;
     }
   };
 
+console.log(mediaQuery)
   return (
     <header>
-      <video className="home-intro" autoPlay muted playsinline ref={introVideo}>
+      <video className="home-intro" autoPlay muted playsInline ref={introVideo}>
         <source src="/videos/vgdcWebMTest.hevc.mp4" type="video/mp4; codecs='hvc1'" />
         <source src="/videos/vgdcWebMTest.mkv" type="video/mp4" />
       </video>
       <div ref={bgVideo}>
         {handleMediaQuery(
-          <video className="home-video-mobile" autoPlay loop muted playsinline>
-            <source src="/videos/VGDCReelCutMobile.mp4" type="video/mp4" />
-          </video>,
-          <video className="home-video" autoPlay loop muted playsinline>
+          <video className="home-video" autoPlay loop muted playsInline>
             <source src="/videos/VGDCReelCut.mp4" type="video/mp4" />
+          </video>,
+          <video className="home-video-mobile" autoPlay loop muted playsInline>
+            <source src="/videos/VGDCReelCutMobile.mp4" type="video/mp4" />
           </video>
         )}
       </div>
