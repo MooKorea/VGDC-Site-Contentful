@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TextField from "../components/FormFieldText";
 import TextareaField from "../components/FormFieldTextarea";
+import { Helmet } from "react-helmet";
 
 export default function ContactUs() {
   const [formState, setFormState] = useState(false);
@@ -37,6 +38,18 @@ export default function ContactUs() {
 
   return (
     <div className="formWrapper">
+      <Helmet>
+        <title>Contact Us</title>
+        <meta name="title" content="Contact Us" />
+        <meta
+          name="description"
+          content="Contact VGDC!"
+        />
+        <meta
+          name="keywords"
+          content="video game, club, University of Minnesota, student group, student, game, Minnesota, UMN, UMN student group, UMN club, art, programming, coding, game development, game dev, dev, contact"
+        />
+      </Helmet>
       <div>
         <h2>Contact Us</h2>
         <form onSubmit={formSubmit}>

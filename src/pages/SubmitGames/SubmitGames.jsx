@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 
 import FormMain from "./FormMain";
 import FormUserNotFound from "./FormUserNotFound";
+import { Helmet } from "react-helmet";
 
 export default function SubmitGames() {
   const formRef = useRef();
@@ -12,34 +13,42 @@ export default function SubmitGames() {
     }
   };
 
-  const [formState, setFormState] = useState("default")
+  const [formState, setFormState] = useState("default");
   const formStateRender = () => {
-    switch(formState) {
+    switch (formState) {
       case "default":
-        return
+        return;
       case "loading":
-        return <div className="loader-container"><div></div></div>
+        return (
+          <div className="loader-container">
+            <div></div>
+          </div>
+        );
       case "notFound":
-        return <FormUserNotFound />
+        return <FormUserNotFound />;
       case "success":
-        return <div><p>Game submitted!</p></div>
+        return (
+          <div>
+            <p>Game submitted!</p>
+          </div>
+        );
     }
-  }
+  };
 
   const thumbnailRef = useRef();
   const additionalMediaRef = useRef();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const selectAdditionalMedia = additionalMediaRef.current.querySelectorAll('input')
-    const imageFiles = [thumbnailRef.current.files[0]]
+    const selectAdditionalMedia = additionalMediaRef.current.querySelectorAll("input");
+    const imageFiles = [thumbnailRef.current.files[0]];
     for (let i = 0; i < selectAdditionalMedia.length; i++) {
-      if (selectAdditionalMedia[i].files[0] === undefined ) continue
-      imageFiles.push(selectAdditionalMedia[i].files[0])
+      if (selectAdditionalMedia[i].files[0] === undefined) continue;
+      imageFiles.push(selectAdditionalMedia[i].files[0]);
     }
-    setFormState("loading")
+    setFormState("loading");
     const formData = new FormData(e.target);
-    
+
     for (let i = 0; i < imageFiles.length; i++) {
       formData.append("image", imageFiles[i]);
       await fetch("https://api.imgur.com/3/image/", {
@@ -57,8 +66,10 @@ export default function SubmitGames() {
     }
 
     let formJSON = Object.fromEntries(formData);
-    ['thumbnail','image','media1','media2','media3'].forEach(e => delete formJSON[e])
-    console.log(formJSON)
+    ["thumbnail", "image", "media1", "media2", "media3"].forEach(
+      (e) => delete formJSON[e]
+    );
+    console.log(formJSON);
 
     const discordBotLink = import.meta.env.VITE_DISCORD_BOT_LINK;
     fetch(discordBotLink, {
@@ -70,10 +81,10 @@ export default function SubmitGames() {
     })
       .then((res) => {
         if (res.status === 400) {
-          setFormState("notFound")
+          setFormState("notFound");
           throw new Error("User not found on VGDC Discord server!");
         }
-        setFormState("success")
+        setFormState("success");
         return res.text();
       })
       .then((data) => console.log(data))
@@ -84,6 +95,18 @@ export default function SubmitGames() {
 
   return (
     <div className="formWrapper">
+      <Helmet>
+        <title>Submit Games</title>
+        <meta name="title" content="Submit Games" />
+        <meta
+          name="description"
+          content="Submit your game to be featured on the website!"
+        />
+        <meta
+          name="keywords"
+          content="video game, club, University of Minnesota, student group, student, game, Minnesota, UMN, UMN student group, UMN club, art, programming, coding, game development, game dev, dev, submit, form"
+        />
+      </Helmet>
       <div>
         <h2>Submit your game!</h2>
         <FormMain

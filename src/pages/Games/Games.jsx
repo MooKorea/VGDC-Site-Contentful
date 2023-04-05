@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import GamePanel from "./GamePanel";
 import SidebarContent from "./SidebarContent";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
+import { Helmet } from "react-helmet";
 
 export default function Games() {
   const defaultSidebar = (
@@ -13,8 +14,7 @@ export default function Games() {
   const mediaQuery = useMediaQuery("md");
 
   const panelSelect = (e) => {
-
-    document.querySelector(".sticky").classList.remove("sidebar-collapse")
+    document.querySelector(".sticky").classList.remove("sidebar-collapse");
 
     const data = e.target.closest(".panel");
     const selected = document.getElementsByClassName("selected");
@@ -23,7 +23,6 @@ export default function Games() {
     }
     data.classList.add("selected");
 
-    
     const markDisplay = document.querySelector(".sticky").childNodes;
     markDisplay.forEach((e) => e.setAttribute("data-display", "false"));
 
@@ -35,7 +34,7 @@ export default function Games() {
 
     prevSidebarElement.forEach((e) => (e.style.opacity = "0"));
 
-    let time = 700
+    let time = 700;
     if (!mediaQuery) time = 0;
     setTimeout(() => {
       prevSidebarElement.forEach((e) => e.remove());
@@ -81,7 +80,19 @@ export default function Games() {
 
   return (
     <>
-      <img className="games-background-triangles" src="/images/Triangle-Graphic.svg"/>
+      <Helmet>
+        <title>Games</title>
+        <meta name="title" content="Games" />
+        <meta
+          name="description"
+          content="View the games made from VGDC!"
+        />
+        <meta
+          name="keywords"
+          content="video game, club, University of Minnesota, student group, student, game, Minnesota, UMN, UMN student group, UMN club, art, programming, coding, game development, game dev, dev, about us"
+        />
+      </Helmet>
+      <img className="games-background-triangles" src="/images/Triangle-Graphic.svg" />
       <main className="games">
         <aside
           className="games-sidebar"
@@ -91,7 +102,7 @@ export default function Games() {
           <div
             className={handleMediaQuery("sticky", "sticky sidebar-collapse")}
             ref={getSticky}
-            style={handleMediaQuery(null, { width: "100vw", pointerEvents:"all" })}
+            style={handleMediaQuery(null, { width: "100vw", pointerEvents: "all" })}
           >
             {gameInfo}
           </div>
