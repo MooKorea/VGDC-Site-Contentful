@@ -17,7 +17,7 @@ header {
     pointer-events: none;
   }
 
-  @media (max-aspect-ratio:16/9) {
+  @media (max-aspect-ratio: 16/9) {
     .home-intro {
       width: auto;
       height: 100%;
@@ -37,7 +37,7 @@ header {
   }
 
   .landing-button {
-    @media (min-width: 768px) {      
+    @media (min-width: 768px) {
       max-width: 160px;
       left: 705px;
       top: 468px;
@@ -45,7 +45,7 @@ header {
     max-width: 34vw;
     left: 50vw;
     top: 100vw;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
 
   .home-bg {
@@ -65,9 +65,8 @@ header {
     mix-blend-mode: multiply;
   }
 
-
   h1.home-heading {
-    @media (min-width: 768px) {      
+    @media (min-width: 768px) {
       top: -20px;
       left: 110px;
       font-size: 7.5rem;
@@ -88,15 +87,15 @@ header {
     transition: ease-in 1s;
 
     & > span {
-      transition: cubic-bezier(0.62,-0.63, 0.24, 1.99) 1s;
-      margin-left:-50px;
+      transition: cubic-bezier(0.62, -0.63, 0.24, 1.99) 1s;
+      margin-left: -50px;
     }
 
     svg {
       margin-right: 0.5em;
       margin-bottom: 1.5vw;
-      @media (min-width: 1024px) {      
-        width:auto;
+      @media (min-width: 1024px) {
+        width: auto;
       }
       width: 4vw;
       path {
@@ -108,5 +107,47 @@ header {
       margin: 0px 5px 0px -3px;
     }
   }
-}
 
+  // PARAGRAPH
+  .home-paragraph-container {
+    position: relative;
+    top: -10%;
+    background: $backgroundSecondary;
+    width: 100vw;
+    .home-paragraph {
+      @media (min-width: $large) {        
+        flex-direction: row-reverse;
+        justify-content: space-around;
+      }
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content:space-between;
+      right: 0;
+      font-family: $textNormal;
+      line-height: 2em;
+      color: #808080;
+      div {
+        @media (min-width: $large) {        
+          padding: 4em 3em 2em 2em;
+        }
+        padding: 5em 5em 4em 5em;
+      }
+    }
+    h2 {
+      font-family: $displayHeavy;
+      font-size: 2rem;
+      color: #ffffff;
+    }
+    img {
+      @media (min-width: $large) {        
+        clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+        width: 60%;
+      }
+      clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%);
+      position: relative;
+      width: 100%;
+
+    }
+  }
+}

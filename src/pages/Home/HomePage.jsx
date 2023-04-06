@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import HomeHeader from "./HomeHeader";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
+import Paragraph from "./Paragraph";
 
 export default function HomePage() {
   const sleep = async (milliseconds) => {
@@ -25,27 +26,27 @@ export default function HomePage() {
         await sleep(i * 100);
         if (mediaQuery) {
           H1TextLine[i].style.marginLeft = `${i * 40}px`;
-        } else {          
+        } else {
           H1TextLine[i].style.marginLeft = `${i * 20}px`;
         }
       }
-      await sleep(2000)
+      await sleep(2000);
       for (let i = 0; i < H1TextLine.length; i++) {
-        H1TextLine[i].style.transition = 'none';
+        H1TextLine[i].style.transition = "none";
       }
-      H1TextLine[0].parentNode.style.transition = 'none';
+      H1TextLine[0].parentNode.style.transition = "none";
     }
 
     window.addEventListener("load", videoIntro());
     return () => window.removeEventListener("load", videoIntro());
   }, []);
 
-  const bgVideo = useRef()
+  const bgVideo = useRef();
 
   const mediaQuery = useMediaQuery("md");
   const handleMediaQuery = (big, small, size) => {
     let sizeSelect = mediaQuery;
-    const video = bgVideo.current?.children[0]
+    const video = bgVideo.current?.children[0];
     video?.load();
     if (sizeSelect) {
       return small;
@@ -70,8 +71,8 @@ export default function HomePage() {
           </video>
         )}
       </div>
-
       <HomeHeader />
+      <Paragraph />
     </header>
   );
 }
