@@ -48,9 +48,9 @@ export default function HomePage() {
     const video = bgVideo.current?.children[0]
     video?.load();
     if (sizeSelect) {
-      return big;
-    } else {
       return small;
+    } else {
+      return big;
     }
   };
 
@@ -62,11 +62,11 @@ export default function HomePage() {
       </video>
       <div ref={bgVideo}>
         {handleMediaQuery(
-          <video className="home-video" autoPlay loop muted playsInline>
-            <source src="/videos/VGDCReelCut.mp4" type="video/mp4" />
-          </video>,
           <video className="home-video-mobile" autoPlay loop muted playsInline>
             <source src="/videos/VGDCReelCutMobile.mp4" type="video/mp4" />
+          </video>,
+          <video className="home-video" autoPlay loop muted playsInline>
+            <source src="/videos/VGDCReelCut.mp4" type="video/mp4" />
           </video>
         )}
       </div>
