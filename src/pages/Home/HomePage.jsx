@@ -57,16 +57,16 @@ export default function HomePage() {
 
   return (
     <header>
-      <video className="home-intro" autoPlay muted playsInline ref={introVideo}>
+      <video className="home-intro" poster="/videos/vgdcIntro.png" autoPlay muted playsInline ref={introVideo}>
         <source src="/videos/vgdcWebMTest.hevc.mp4" type="video/mp4; codecs='hvc1'" />
         <source src="/videos/vgdcWebMTest.mkv" type="video/mp4" />
       </video>
       <div ref={bgVideo}>
         {handleMediaQuery(
-          <video className="home-video-mobile" autoPlay loop muted playsInline>
+          <video className="home-video-mobile"  autoPlay loop muted playsInline>
             <source src="/videos/VGDCReelCutMobile.mp4" type="video/mp4" />
           </video>,
-          <video className="home-video" autoPlay loop muted playsInline>
+          <video className="home-video" poster="/videos/VGDCReelCut.png" autoPlay loop muted playsInline>
             <source src="/videos/VGDCReelCut.mp4" type="video/mp4" />
           </video>
         )}
