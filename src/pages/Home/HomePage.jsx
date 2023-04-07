@@ -63,7 +63,7 @@ export default function HomePage() {
       </video>
       <div ref={bgVideo}>
         {handleMediaQuery(
-          <video className="home-video-mobile"  autoPlay loop muted playsInline>
+          <video className="home-video-mobile" poster="/videos/VGDCReelCutMobile.png" autoPlay loop muted playsInline>
             <source src="/videos/VGDCReelCutMobile.mp4" type="video/mp4" />
           </video>,
           <video className="home-video" poster="/videos/VGDCReelCut.png" autoPlay loop muted playsInline>
