@@ -12,7 +12,11 @@ export default function Paragraph() {
             we’re always willing to teach.
           </p>
         </div>
-        <img src="/images/home/VGDC_Home_Photo.jpg" />
+        <picture>
+            <source srcset="/images/home/VGDC_Home_Photo.webp" type="image/webp" />
+            <source srcset="/images/home/VGDC_Home_Photo.jpg" type="image/jpeg" /> 
+            <img src="/images/home/VGDC_Home_Photo.jpg" alt="Fall 2022 Semester Games Showcase" />
+        </picture>
       </div>
     </div>
   );

@@ -110,9 +110,12 @@ header {
 
   // PARAGRAPH
   .home-paragraph-container {
+    @media (min-width: $large) {     
+      background: linear-gradient(333deg, $backgroundSecondary 10%, $backgroundGradientCol 100%);
+    }
     position: relative;
     top: -10%;
-    background: $backgroundSecondary;
+    background: linear-gradient(333deg, $backgroundSecondary 50%, $backgroundGradientCol 100%);
     width: 100vw;
     clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 94%);
     .home-paragraph {
@@ -129,26 +132,46 @@ header {
       line-height: 2em;
       color: #808080;
       div {
+        @media (min-width: $small) {        
+          padding: 5em 5em 4em 5em;
+        }
         @media (min-width: $large) {        
           padding: 4em 3em 2em 2em;
         }
-        padding: 5em 5em 4em 5em;
+        @media (min-width: $xlarge) {        
+          padding: 4em 6em 2em 4em;
+          font-size: 1.1rem;
+          line-height: 2em;
+        }
+        @media (min-width: $xxlarge) {        
+          padding: 4em 6em 2em 4em;
+          font-size: 1.4rem;
+          line-height: 2em;
+        }
+        padding: 3em 3em 3em 3em;
       }
     }
     h2 {
+      @media (min-width: $small) {     
+        font-size: 3rem;   
+      }
       font-family: $displayHeavy;
-      font-size: 3rem;
+      font-size: 2rem;
       color: #ffffff;
+      line-height: 1.1em;
+      margin-bottom: 0;
     }
-    img {
+    picture {
       @media (min-width: $large) {        
         clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
-        width: 60%;
+        min-width: 60%;
       }
       clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%);
       position: relative;
       width: 100%;
-
+    }
+    img {
+      width: 100%;
     }
   }
 }
