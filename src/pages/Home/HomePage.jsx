@@ -75,7 +75,7 @@ export default function HomePage() {
       <div className="home-page">
         <video
           className="home-intro"
-          poster="/videos/vgdcIntro.png"
+          poster="/videos/vgdcIntro.webp"
           autoPlay
           muted
           playsInline
@@ -88,7 +88,7 @@ export default function HomePage() {
           {handleMediaQuery(
             <video
               className="home-video-mobile"
-              poster="/videos/VGDCReelCutMobile.png"
+              poster="/videos/VGDCReelCutMobile.webp"
               autoPlay
               loop
               muted
@@ -98,7 +98,7 @@ export default function HomePage() {
             </video>,
             <video
               className="home-video"
-              poster="/videos/VGDCReelCut.png"
+              poster="/videos/VGDCReelCut.webp"
               autoPlay
               loop
               muted

@@ -45,9 +45,9 @@ export default function Announcements() {
     const announcementsArr = announcement
       ?.slice(1)
       .reverse()
-      .map((e) => {
+      .map((e, index) => {
         return (
-          <div className="content">
+          <div className="content" key={index}>
             <div className="post-header">
               <div className="author">{e[1]}</div>
               <div className="date">{e[2]}</div>
