@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import HomeHeader from "./HomeHeader";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import Paragraph from "./Paragraph";
+import Announcements from "./Announcements";
 
 export default function HomePage() {
   const sleep = async (milliseconds) => {
@@ -56,23 +57,47 @@ export default function HomePage() {
   };
 
   return (
-    <header>
-      <video className="home-intro" poster="/videos/vgdcIntro.png" autoPlay muted playsInline ref={introVideo}>
-        <source src="/videos/vgdcWebMTest.hevc.mp4" type="video/mp4; codecs='hvc1'" />
-        <source src="/videos/vgdcWebMTest.mkv" type="video/mp4" />
-      </video>
-      <div ref={bgVideo}>
-        {handleMediaQuery(
-          <video className="home-video-mobile" poster="/videos/VGDCReelCutMobile.png" autoPlay loop muted playsInline>
-            <source src="/videos/VGDCReelCutMobile.mp4" type="video/mp4" />
-          </video>,
-          <video className="home-video" poster="/videos/VGDCReelCut.png" autoPlay loop muted playsInline>
-            <source src="/videos/VGDCReelCut.mp4" type="video/mp4" />
-          </video>
-        )}
+    <>
+      <div className="home-page">
+        <video
+          className="home-intro"
+          poster="/videos/vgdcIntro.png"
+          autoPlay
+          muted
+          playsInline
+          ref={introVideo}
+        >
+          <source src="/videos/vgdcWebMTest.hevc.mp4" type="video/mp4; codecs='hvc1'" />
+          <source src="/videos/vgdcWebMTest.mkv" type="video/mp4" />
+        </video>
+        <div ref={bgVideo}>
+          {handleMediaQuery(
+            <video
+              className="home-video-mobile"
+              poster="/videos/VGDCReelCutMobile.png"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src="/videos/VGDCReelCutMobile.mp4" type="video/mp4" />
+            </video>,
+            <video
+              className="home-video"
+              poster="/videos/VGDCReelCut.png"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src="/videos/VGDCReelCut.mp4" type="video/mp4" />
+            </video>
+          )}
+        </div>
+        <HomeHeader />
+        <Announcements />
+        <Paragraph />
       </div>
-      <HomeHeader />
-      <Paragraph />
-    </header>
+    </>
   );
 }

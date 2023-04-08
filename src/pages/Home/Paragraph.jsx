@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 
 export default function Paragraph() {
   return (
-    <div className="home-paragraph-container">
+    <header className="home-paragraph-container">
       <div className="home-paragraph">
         <div>
           <h2>Learn with us!</h2>
@@ -13,11 +13,11 @@ export default function Paragraph() {
           </p>
         </div>
         <picture>
-            <source srcset="/images/home/VGDC_Home_Photo.webp" type="image/webp" />
-            <source srcset="/images/home/VGDC_Home_Photo.jpg" type="image/jpeg" /> 
+            <source srcSet="/images/home/VGDC_Home_Photo.webp" type="image/webp" />
+            <source srcSet="/images/home/VGDC_Home_Photo.jpg" type="image/jpeg" /> 
             <img src="/images/home/VGDC_Home_Photo.jpg" alt="Fall 2022 Semester Games Showcase" />
         </picture>
       </div>
-    </div>
+    </header>
   );
 }

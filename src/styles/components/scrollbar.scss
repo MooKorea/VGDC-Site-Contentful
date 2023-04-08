@@ -1,6 +1,9 @@
-::-webkit-scrollbar {
-  width: 10px;
+@media (min-width: $medium) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
 }
+
 ::-webkit-scrollbar-track {
   background: #4646462a;
 }

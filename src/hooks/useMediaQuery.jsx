@@ -8,6 +8,7 @@ export const useMediaQuery = (screen) => {
         md: '768px',
         lg: '1024px',
         xl: '1280px',
+        announcement: '1350px',
         '2xl': '1536px',
     };
 
