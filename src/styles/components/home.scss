@@ -138,6 +138,9 @@
       color: #808080;
       div {
         @media (min-width: $small) {        
+          padding: 8em 5em 4em 5em;
+        }
+        @media (min-width: $medium) {        
           padding: 5em 5em 4em 5em;
         }
         @media (min-width: $large) {        

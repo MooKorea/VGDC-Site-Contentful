@@ -90,7 +90,7 @@ export default function Announcements() {
   return (
     <aside className="announcements announcements-collapsed">
       <div className="header">
-        <h3>Recent Announcements</h3>
+        <h2>Recent Announcements</h2>
         {handlExpandButton()}
       </div>
       <div className="announcement-list-collapsed" ref={listContainer}>
