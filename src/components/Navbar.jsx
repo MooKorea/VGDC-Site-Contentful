@@ -33,7 +33,11 @@ export default function navbar() {
         {sidebarToggle && <Sidebar />}
         <div className="top-nav">
           <Link to="/" className="navbar-logo-button">
-            <img className="navbar-logo" src="/images/Navbar-logo.png" alt="VGDC Logo" />
+            <picture>
+              <source srcSet="/images/Navbar-logo.webp" type="image/webp" />
+              <source srcSet="/images/Navbar-logo.png" type="image/png" />
+              <img className="navbar-logo" src="/images/Navbar-logo.png" alt="VGDC Logo" />
+            </picture>
             {handleMediaQuery(
               null,
               <div className="logo-text">
