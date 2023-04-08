@@ -2,6 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 export default function Announcements() {
+  const mediaQueryAnn = useMediaQuery("announcement");
+  const mediaQueryMd = useMediaQuery("md");
+
   let expanded = false;
   const listContainer = useRef();
   const handleExpand = (e) => {
@@ -12,6 +15,8 @@ export default function Announcements() {
       panel.classList.remove("announcements-collapsed");
       listContainer.current.classList.add("announcement-list-expanded");
       e.target.innerText = "Collapse";
+      if (mediaQueryAnn) return
+      panel.scrollIntoView();
     } else {
       panel.classList.add("announcements-collapsed");
       panel.classList.remove("announcements-expanded");
@@ -55,8 +60,6 @@ export default function Announcements() {
     setAnnouncementList(announcementsArr);
   }, [announcement]);
 
-  const mediaQueryAnn = useMediaQuery("announcement");
-  const mediaQueryMd = useMediaQuery("md");
   const handlExpandButton = () => {
     if (mediaQueryMd && !mediaQueryAnn) {
         listContainer.current.classList.remove("announcement-list-expanded");

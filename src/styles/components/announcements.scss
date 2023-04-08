@@ -22,11 +22,11 @@ $announcementMediaQuery: 1350px;
     left: auto;
     top: auto;
   }
+  scroll-margin-top: 100px;
   position: relative;
-  top:-10%;
+  top: -10%;
   margin-inline: 1em;
-  border-radius: 0.7em;
-  overflow: hidden;
+  border-radius: 8px;
   background: linear-gradient(
     180deg,
     #0b1016 46.35%,
@@ -44,6 +44,7 @@ $announcementMediaQuery: 1350px;
     background: linear-gradient(90deg, #3e56dd 0%, rgba(210, 54, 189, 0.164) 100%);
     padding-inline: 20px;
     padding-block: 0.4em;
+    border-radius: 8px 8px 0 0;
     svg {
       height: 8px;
       width: auto;
@@ -73,12 +74,12 @@ $announcementMediaQuery: 1350px;
     @media (min-width: $medium) {
       overflow: scroll;
       -webkit-mask-image: linear-gradient(to top, transparent 9%, black 17%);
-      mask-image: linear-gradient(to top, transparent 9%, black 17%);  
+      mask-image: linear-gradient(to top, transparent 9%, black 17%);
     }
     @media (min-width: $announcementMediaQuery) {
       overflow: hidden;
       -webkit-mask-image: linear-gradient(to top, transparent 20%, black 55%);
-      mask-image: linear-gradient(to top, transparent 20%, black 55%);  
+      mask-image: linear-gradient(to top, transparent 20%, black 55%);
     }
     overflow: hidden;
     flex-grow: 1;
