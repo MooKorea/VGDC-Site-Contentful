@@ -44,7 +44,7 @@ export default function HomeHeader() {
         "medium"
       )}
       <a
-        href="https://youtu.be/AQx_KMoCgJU?t=27"
+        href="https://www.youtube.com/watch?v=nsPuef3hBl0"
         target="_blank"
         title="Link to reel"
       >
