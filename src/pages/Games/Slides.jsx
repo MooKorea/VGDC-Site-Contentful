@@ -1,44 +1,44 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function useSlides({ thumbnail, media1, media2, media3 }) {
   let mediaObj = Object.fromEntries(
     Object.entries({ thumbnail, media1, media2, media3 }).filter(([_, v]) => v != null)
   );
-  const mediaArr = Object.values(mediaObj);
+  const mediaArr = Object.values(mediaObj).filter((n) => n);
 
-  const [media, setMedia] = useState([<img src={mediaArr[0]}></img>]);
+  const [media, setMedia] = useState([<img src={mediaArr[0]} />]);
   let [slide, setSlide] = useState(0);
-  let [direction, setDirection] = useState();
+  const [direction, setdirection] = useState(-200);
 
   useEffect(() => {
     setSlide(0);
-    setDirection("");
   }, [thumbnail]);
 
   useEffect(() => {
-    if (slide < 0 && direction === "left") {
-      setSlide(mediaArr.length - 1);
-    } else if (slide > mediaArr.length - 1 && direction === "right") {
-      setSlide(0);
-    }
-
-    setMedia(<img src={mediaArr[slide]}></img>);
+    const cycle = Math.abs(slide % mediaArr.length);
+    setMedia(
+      <motion.img
+        key={mediaArr[cycle]}
+        src={mediaArr[cycle]}
+        initial={{ opacity: 0, x: direction }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.2, ease: "backOut" }}
+      />
+    );
   }, [slide]);
-
-  function handleSlideLeft() {
-    setDirection("left");
-    setSlide(--slide);
-  }
-  function handleSlideRight() {
-    setDirection("right");
-    setSlide(++slide);
-  }
 
   const scrollButtons = () => {
     if (mediaArr.length <= 1) return;
     return (
       <div className="buttons">
-        <div className="button-left" onClick={handleSlideLeft}>
+        <div
+          className="button-left"
+          onClick={() => {
+            setSlide(--slide);
+            setdirection(-400);
+          }}
+        >
           <svg
             style={{ marginRight: 2 }}
             width="22"
@@ -53,7 +53,13 @@ export default function useSlides({ thumbnail, media1, media2, media3 }) {
             />
           </svg>
         </div>
-        <div className="button-right" onClick={handleSlideRight}>
+        <div
+          className="button-right"
+          onClick={() => {
+            setSlide(++slide);
+            setdirection(400);
+          }}
+        >
           <svg
             style={{ marginLeft: 1 }}
             width="22"

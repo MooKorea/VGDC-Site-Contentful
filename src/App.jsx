@@ -4,7 +4,7 @@ import Home from "./pages/Home/HomePage";
 import BlogExample from "./pages/Blog";
 import ContactUs from "./pages/ContactUs";
 import SubmitGames from "./pages/SubmitGames/SubmitGames";
-import Games from "./pages/Games/Games";
+import Games from "./pages/Games";
 import About from "./pages/About";
 import Faq from "./pages/Faq";
 import { Route, Routes } from "react-router-dom";
