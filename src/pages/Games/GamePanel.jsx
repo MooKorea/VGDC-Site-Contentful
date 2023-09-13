@@ -23,6 +23,7 @@ export default function GamePanel({ panelSelect, activeItem, games, setGames }) 
       game.media3 = r[12][i];
       sanitizedEntries.push(game);
     }
+    console.log(sanitizedEntries.reverse())
     setGames(sanitizedEntries.reverse());
   };
 

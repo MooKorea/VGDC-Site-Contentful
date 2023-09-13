@@ -72,7 +72,7 @@ export default function SidebarContent({ data, setSidebarClose }) {
             data={data.description}
           />
           <OptionalData field="theme" data={data.theme} />
-          <OptionalData field="credits" data={data.theme} />
+          <OptionalData field="credits" data={data.credits} />
         </div>
       </div>
     </motion.div>
