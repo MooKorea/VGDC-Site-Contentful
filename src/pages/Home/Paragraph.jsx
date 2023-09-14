@@ -4,7 +4,7 @@ export default function Paragraph() {
   return (
     <header className="home-paragraph-container">
       <div className="home-paragraph">
-        <div>
+        <div className="text">
           <h2>Learn with us!</h2>
           <p>
             Welcome to the Video Game Development Club! We are actors, artists, designers,

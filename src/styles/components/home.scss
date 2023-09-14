@@ -136,7 +136,7 @@
       font-family: $textNormal;
       line-height: 2em;
       color: #808080;
-      div {
+      div.text {
         @media (min-width: $small) {        
           padding: 8em 5em 4em 5em;
         }
