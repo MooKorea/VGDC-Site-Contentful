@@ -112,46 +112,54 @@
 
   // PARAGRAPH
   .home-paragraph-container {
-    @media (min-width: $medium) {     
+    @media (min-width: $medium) {
       top: -10%;
     }
-    @media (min-width: $large) {     
-      background: linear-gradient(333deg, $backgroundSecondary 10%, $backgroundGradientCol 100%);
+    @media (min-width: $large) {
+      background: linear-gradient(
+        333deg,
+        $backgroundSecondary 10%,
+        $backgroundGradientCol 100%
+      );
     }
     position: relative;
     top: -25%;
-    background: linear-gradient(333deg, $backgroundSecondary 50%, $backgroundGradientCol 100%);
+    background: linear-gradient(
+      333deg,
+      $backgroundSecondary 50%,
+      $backgroundGradientCol 100%
+    );
     width: 100vw;
     clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 94%);
     .home-paragraph {
-      @media (min-width: $large) {        
+      @media (min-width: $large) {
         flex-direction: row-reverse;
         justify-content: space-around;
       }
       width: 100%;
       display: flex;
       flex-direction: column;
-      justify-content:space-between;
+      justify-content: space-between;
       right: 0;
       font-family: $textNormal;
       line-height: 2em;
       color: #808080;
       div.text {
-        @media (min-width: $small) {        
+        @media (min-width: $small) {
           padding: 8em 5em 4em 5em;
         }
-        @media (min-width: $medium) {        
+        @media (min-width: $medium) {
           padding: 5em 5em 4em 5em;
         }
-        @media (min-width: $large) {        
-          padding: 4em 3em 2em 2em;
+        @media (min-width: $large) {
+          padding: 2em 3em 2em 2em;
         }
-        @media (min-width: $xlarge) {        
+        @media (min-width: $xlarge) {
           padding: 4em 6em 2em 4em;
           font-size: 1.1rem;
           line-height: 2em;
         }
-        @media (min-width: $xxlarge) {        
+        @media (min-width: $xxlarge) {
           padding: 4em 6em 2em 4em;
           font-size: 1.4rem;
           line-height: 2em;
@@ -159,9 +167,30 @@
         padding: 8em 3em 3em 3em;
       }
     }
+
+    a {
+      text-decoration: none;
+    }
+
+    .discord-button {
+      @media (min-width: 500px) {
+        width: fit-content;
+      }
+
+      display: flex;
+      justify-content: center;
+      font-family: $displayNormal;
+      font-size: 1.2rem;
+      color: rgb(255, 255, 255);
+      background-color: $primary;
+      border-radius: 6px;
+      padding-block: 0.3rem;
+      padding-inline: 1.3rem;
+    }
+
     h2 {
-      @media (min-width: $small) {     
-        font-size: 3rem;   
+      @media (min-width: $small) {
+        font-size: 3rem;
       }
       font-family: $displayHeavy;
       font-size: 2rem;
@@ -170,7 +199,7 @@
       margin-bottom: 0;
     }
     picture {
-      @media (min-width: $large) {        
+      @media (min-width: $large) {
         clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
         min-width: 60%;
       }
