@@ -46,7 +46,6 @@ export default function SidebarContent({ data, setSidebarClose }) {
           <OptionalData
             field="date"
             data={data.date}
-            placeholder={<p>Solo Project</p>}
           />
           <div className="graphic">
             <img className="triangles" src="/images/Triangle-Graphic.svg"></img>
