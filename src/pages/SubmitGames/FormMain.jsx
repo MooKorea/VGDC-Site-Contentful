@@ -59,8 +59,8 @@ export default function FormMain({
       </div>
       <TextField
         id="user"
-        label="Discord Username or UMN Email"
-        placeholder="MooKorea#3998"
+        label="UMN Email"
+        placeholder="xxx001@umn.edu"
         pattern=".+(@umn\.edu|#\d{4})"
         isrequired="true"
       />

@@ -3,7 +3,8 @@ import HomeHeader from "./HomeHeader";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import Paragraph from "./Paragraph";
 import Announcements from "./Announcements";
-import { Helmet } from "react-helmet";
+import Head from "./Head";
+import Button from "./Button";
 
 export default function HomePage() {
   const sleep = async (milliseconds) => {
@@ -59,19 +60,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Helmet>
-        <title>Video Game Development Club</title>
-        <meta name="title" content="Video Game Development Club" />
-        <meta
-          name="description"
-          content="We are actors, artists, designers, musicians, programmers, writers, and more! All skill levels are welcome, and we’re always willing to teach."
-        />
-        <meta
-          name="keywords"
-          content="video game, club, University of Minnesota, student group, student, game, Minnesota, UMN, UMN student group, UMN club, art, programming, coding, game development, game dev, dev"
-        />
-        <link rel="canonical" href="https://vgdc.club/" />
-      </Helmet>
+      <Head />
       <div className="home-page">
         <video
           className="home-intro"
@@ -81,7 +70,10 @@ export default function HomePage() {
           playsInline
           ref={introVideo}
         >
-          <source src="/videos/vgdcWebMTest.hevc.mp4" type="video/mp4; codecs='hvc1'" />
+          <source
+            src="/videos/vgdcWebMTest.hevc.mp4"
+            type="video/mp4; codecs='hvc1'"
+          />
           <source src="/videos/vgdcWebMTest.mkv" type="video/mp4" />
         </video>
         <div ref={bgVideo}>
