@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import NewTag from "./NewTag";
 
 export default function GamePanel({ panelSelect, activeItem, games, setGames }) {
   const fetchData = async (url) => {
@@ -26,13 +27,28 @@ export default function GamePanel({ panelSelect, activeItem, games, setGames }) 
     setGames(sanitizedEntries.reverse());
   };
 
+  const [currentDate, setCurrentDate] = useState(0);
+
   useEffect(() => {
     const spreadsheet_id = "1TavkbXHhw3hrDaRKhhNsevyRCM_UG8VD0x-d5eZnHZE";
     const tab_name = "Sheet1";
     const api_key = import.meta.env.VITE_GOOGLE_SHEETS_API;
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheet_id}/values/${tab_name}?alt=json&key=${api_key}`;
     fetchData(url).catch(console.error);
+
+    setCurrentDate(Date.now());
   }, []);
+
+  const handleNewTag = (date) => {
+    if (date === NaN) return;
+
+    const monthInMilliseconds = 2629746000;
+    if (currentDate - monthInMilliseconds < date) {
+      return (
+        <NewTag />
+      )
+    }
+  }
 
   return (
     <div className="img-container">
@@ -51,6 +67,7 @@ export default function GamePanel({ panelSelect, activeItem, games, setGames }) 
             <div className="thumbnail-image-container">
               <img className="thumbnail-image" src={e.thumbnail}></img>
             </div>
+            {handleNewTag(Date.parse(e.uploadDate))}
             <figcaption className="title">{e.title}</figcaption>
           </motion.figure>
         );
